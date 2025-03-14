@@ -52,7 +52,7 @@
  12) Final note: any minor misspellings or deviations from the instructions could cause issues with setup. This project was made for myself and possibly a few friends to be able to use and was not really planned to be something for a ton of people to use. If you do use it and find any issues or have any requests, I will consider making changes to this project. I may redo the look of the project as time goes, but managing the data was my most important part of this project.
 
 
-###Images of a fresh project creation:
+### Images of a fresh project creation:
 ![image](https://github.com/user-attachments/assets/0363ed62-2d4b-442c-8aab-05f49cc11bbe)
 ![image](https://github.com/user-attachments/assets/d075d92f-6b07-422a-838a-e0d51bc6285b)
 
