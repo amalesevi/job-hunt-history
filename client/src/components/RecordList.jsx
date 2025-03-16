@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getStatusColor } from "../libraries/utility";
+import { getStatusColor } from "../utils/utility";
 
 const Record = (props) => (
 
