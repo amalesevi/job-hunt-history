@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getStatusColor } from "../libraries/utility";
 
 const Record = (props) => (
+
     <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-      <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0">
-        {console.log(props.record)}
-        {props.record.application_status}
+      <td className={"p-4 align-middle [&:has([role=checkbox])]:pr-0 " + getStatusColor(props.record.application_status, props.record.date_applied)}>
+          {props.record.application_status}
       </td>
       <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0">
         {props.record.company}
@@ -57,6 +58,9 @@ const Record = (props) => (
   
   export default function RecordList() {
     const [records, setRecords] = useState([]);
+    const sortedRecords = [...records];
+    const [sortColumn, setSortColumn] = useState(null);
+    const [sortDirection, setSortDirection] = useState(null);
   
     // This method fetches the records from the database.
     useEffect(() => {
@@ -85,7 +89,17 @@ const Record = (props) => (
   
     // This method will map out the records on the table
     function recordList() {
-      return records.map((record) => {
+      if (sortColumn && sortDirection) {
+        sortedRecords.sort((a, b) => {
+          if (sortDirection === "asc") {
+            return a[sortColumn] > b[sortColumn] ? 1 : -1;
+          } else {
+            return a[sortColumn] < b[sortColumn] ? 1 : -1;
+          }
+        });
+      }
+
+      return sortedRecords.map((record) => {
         return (
           <Record
             record={record}
@@ -94,6 +108,15 @@ const Record = (props) => (
           />
         );
       });
+    }
+
+    function handleSort(column) {
+      if (sortColumn === column) {
+        setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+      } else {
+        setSortColumn(column);
+        setSortDirection('asc');
+      }
     }
   
     // This following section will display the table with the records of individuals.
@@ -105,25 +128,25 @@ const Record = (props) => (
             <table className="w-full caption-bottom text-sm">
               <thead className="[&_tr]:border-b">
                 <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
+                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0" onClick={() => handleSort("application_status")}>
                     Application Status
                   </th>
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
+                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0" onClick={() => handleSort("company")}>
                     Company
                   </th>
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
+                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0" onClick={() => handleSort("job_title")}>
                     Job Title
                   </th>
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
+                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0" onClick={() => handleSort("location")}>
                     Location
                   </th>
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
+                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0" onClick={() => handleSort("date_applied")}>
                     Date Applied
                   </th>
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
+                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0" onClick={() => handleSort("site_applied")}>
                     Site Applied
                   </th>
-                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
+                  <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0" onClick={() => handleSort("posting_link")}>
                     Posting Link
                   </th>
                   <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
