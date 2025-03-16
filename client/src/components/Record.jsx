@@ -199,6 +199,7 @@ export default function Record() {
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"
                     placeholder="Company Name"
                     value={form.company}
+                    autoComplete="on"
                     onChange={(e) => updateForm({ company: e.target.value })}
                   />
                 </div>
@@ -283,7 +284,7 @@ export default function Record() {
                       onChange={(e) => updateForm({ site_applied: e.target.value })}
                     />
                     <label
-                      htmlFor="siteLinkedIn"
+                      htmlFor="siteLinkedin"
                       className="ml-3 block text-sm font-medium leading-6 text-slate-900 mr-4"
                     >
                       LinkedIn
