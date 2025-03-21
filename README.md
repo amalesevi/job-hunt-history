@@ -37,13 +37,13 @@
 
 ## Steps for dev setup
 
-1) In the server folder terminal, run the following command (repeat step 9 from above):
+1) In the server folder terminal, run the following command:
 
  ```
  node --env-file=config.env server
  ```
 
-2) In the client folder terminal, run the following command (repeat step 10 from above):
+2) In the client folder terminal, run the following command:
 
  ```
  npm run dev
@@ -57,7 +57,7 @@
   npm run build
   ```
 
-2) In the server folder terminal, run the following command (repeat step 9 from above):
+2) In the server folder terminal, run the following command:
 
  ```
  node --env-file=config.env server
