@@ -35,39 +35,39 @@
  PORT=5050
  ```
 
- 9) Once you save that file, you are ready to launch the project. In the terminal window that is in the server folder, run the following command:
+## Steps for dev setup
+
+1) In the server folder terminal, run the following command (repeat step 9 from above):
 
  ```
  node --env-file=config.env server
  ```
 
- 10) In the terminal in the client folder, run the following command:
+2) In the client folder terminal, run the following command (repeat step 10 from above):
 
  ```
  npm run dev
  ```
 
- 11) This terminal should now show you which localhost port your site is now running on. You can navigate to that in the url of your browser now to see a fresh implementation of the site with no data.
+## Steps for prod setup
 
- 12) Final note: any minor misspellings or deviations from the instructions could cause issues with setup. This project was made for myself and possibly a few friends to be able to use and was not really planned to be something for a ton of people to use. If you do use it and find any issues or have any requests, I will consider making changes to this project. I may redo the look of the project as time goes, but managing the data was my most important part of this project.
+1) In the client terminal, run the following command (only needs to be run when you initially setup or download updates from the repo):
 
-## Steps to run after initial setup:
-
-1) Open 2 terminals. One terminal should be within the server folder, the other should be in the client folder.
+  ```
+  npm run build
+  ```
 
 2) In the server folder terminal, run the following command (repeat step 9 from above):
 
  ```
  node --env-file=config.env server
  ```
+3) Navigate your web browser to localhost:PORT where port is whatever port you defined in your config.env file.
 
-3) In the client folder terminal, run the following command (repeat step 10 from above):
 
- ```
- npm run dev
- ```
 
-4) Ctrl + Left click the URL in the output from the client terminal and navigate to localhost to stat using the project. 
+### Final note: 
+Any minor misspellings or deviations from the instructions could cause issues with setup. This project was made for myself and possibly a few friends to be able to use and was not really planned to be something for a ton of people to use. If you do use it and find any issues or have any requests, I will consider making changes to this project. I may redo the look of the project as time goes, but managing the data was my most important part of this project.
 
 ### Images of a fresh project creation:
 ![image](https://github.com/user-attachments/assets/0363ed62-2d4b-442c-8aab-05f49cc11bbe)
