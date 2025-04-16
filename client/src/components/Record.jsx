@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 export default function Record() {
   const [form, setForm] = useState({
-    application_status: "",
+    application_status: "Applied",
     company: "",
     job_title: "",
     location: "",
